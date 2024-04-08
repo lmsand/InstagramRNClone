@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator<RootNavigatorParamList>(); // {Navigato
 const linking: LinkingOptions<RootNavigatorParamList> = {
   // prefixes: ['notjustinsta://', 'https://notjustinsta.com']
   // prefixes: [Linking.createURL('/'), 'https://notjustinsta.com'],
-  prefixes: [prefix],
+  prefixes: ['notjustphotos://', 'https://notjustphotos.com'],
   config: {
     initialRouteName: 'Home',
     screens: {
