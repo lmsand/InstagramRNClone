@@ -1,0 +1,59 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-instagramclone-staging-e557e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::590184118512:role/amplify-instagramclone-staging-e557e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::590184118512:role/amplify-instagramclone-staging-e557e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-instagramclone-staging-e557e-deployment",
+      "UnauthRoleName": "amplify-instagramclone-staging-e557e-unauthRole",
+      "StackName": "amplify-instagramclone-staging-e557e",
+      "StackId": "arn:aws:cloudformation:us-east-1:590184118512:stack/amplify-instagramclone-staging-e557e/2120fc20-f615-11ee-988f-0e134d6a585d",
+      "AmplifyAppId": "dptuay39nygxg"
+    }
+  },
+  "auth": {
+    "InstagramClone": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/auth/InstagramClone-cloudformation-template.json",
+        "logicalId": "authInstagramClone"
+      },
+      "lastPushTimeStamp": "2024-04-09T03:40:18.706Z",
+      "output": {
+        "UserPoolId": "us-east-1_dJMJBDv3Z",
+        "AppClientIDWeb": "239460gs9cnfk71oe9dl08ks58",
+        "AppClientID": "34pi7mr0s2do131p4tsf8i73rj",
+        "IdentityPoolId": "us-east-1:fd79dc33-dd09-4d69-8885-2ce050c68713",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:590184118512:userpool/us-east-1_dJMJBDv3Z",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "InstagramClone"
+      },
+      "lastPushDirHash": "uEk/eMxa9f9H4SUnlfqNrMBzPfU="
+    }
+  }
+}

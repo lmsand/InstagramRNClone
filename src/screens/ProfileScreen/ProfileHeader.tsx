@@ -5,9 +5,19 @@ import styles from "./styles";
 import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { ProfileNavigationProp } from "../../types/navigation";
+import { signOut } from 'aws-amplify/auth';
+
 
 const ProfileHeader = () => {
   const navigation = useNavigation<ProfileNavigationProp>()
+
+  async function handleSignOut() {
+    try {
+      await signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
 
   return (
     <View style={styles.root}>
@@ -42,7 +52,7 @@ const ProfileHeader = () => {
           onPress={() => navigation.navigate("Edit Profile")}
         />
 
-        <Button text="Another button" onPress={() => console.warn("")} />
+        <Button text="sign out" onPress={() => handleSignOut()} />
       </View>
 
 

@@ -1,10 +1,14 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import 'react-native-gesture-handler';
-// import { Amplify } from "aws-amplify";
-// import config from './src/aws-exports'
 import Navigation from "./src/navigation";
-import FeedGridView from "./src/components/FeedGridView";
-// import amplifyconfig from './src/amplifyconfiguration.json';
+import {
+  withAuthenticator,
+  useAuthenticator
+} from '@aws-amplify/ui-react-native';
+
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './src/amplifyconfiguration.json';
+Amplify.configure(amplifyconfig);
 
 // Amplify.configure(amplifyconfig)
 
@@ -21,4 +25,4 @@ const App = () => {
 };
 
 
-export default App;
+export default withAuthenticator(App);
