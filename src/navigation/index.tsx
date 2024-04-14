@@ -1,7 +1,6 @@
 import {NavigationContainer, LinkingOptions} from '@react-navigation/native';
 import CommentsScreen from '../screens/CommentsScreen';
 import {Text} from 'react-native';
-import AuthStackNavigator from './AuthStackNavigator';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabNavigator from './BottomTabNavigator';
@@ -43,11 +42,7 @@ const Navigation = () => {
         initialRouteName="Auth"
         screenOptions={{headerShown: true}}>
 
-        <Stack.Screen
-          name="Auth"
-          component={AuthStackNavigator}
-          options={{headerShown: false}}
-        />
+
 
         <Stack.Screen
           name="Home"

@@ -9,14 +9,25 @@
       "UnauthRoleName": "amplify-instagramclone-staging-e557e-unauthRole",
       "StackName": "amplify-instagramclone-staging-e557e",
       "StackId": "arn:aws:cloudformation:us-east-1:590184118512:stack/amplify-instagramclone-staging-e557e/2120fc20-f615-11ee-988f-0e134d6a585d",
-      "AmplifyAppId": "dptuay39nygxg"
+      "AmplifyAppId": "dptuay39nygxg",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     }
   },
   "auth": {
     "InstagramClone": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "InstagramClonePostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
@@ -43,7 +54,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/auth/InstagramClone-cloudformation-template.json",
         "logicalId": "authInstagramClone"
       },
-      "lastPushTimeStamp": "2024-04-09T03:39:36.593Z",
+      "lastPushTimeStamp": "2024-04-14T01:42:18.835Z",
       "output": {
         "UserPoolId": "us-east-1_dJMJBDv3Z",
         "AppClientIDWeb": "239460gs9cnfk71oe9dl08ks58",
@@ -51,9 +62,39 @@
         "IdentityPoolId": "us-east-1:fd79dc33-dd09-4d69-8885-2ce050c68713",
         "UserPoolArn": "arn:aws:cognito-idp:us-east-1:590184118512:userpool/us-east-1_dJMJBDv3Z",
         "IdentityPoolName": "testAuthIdentityPool__staging",
-        "UserPoolName": "InstagramClone"
+        "UserPoolName": "InstagramClone",
+        "HostedUIDomain": "instagramclone69dc2d6d-69dc2d6d-staging",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"notjustphotos://\"],\"LogoutURLs\":[\"notjustphotos://\"]}"
       },
-      "lastPushDirHash": "uEk/eMxa9f9H4SUnlfqNrMBzPfU="
+      "lastPushDirHash": "xq6UaFNsj2oEc6P6iwVsf8752AI="
+    }
+  },
+  "function": {
+    "InstagramClonePostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2024-04-14T01:39:36.892Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-04-14T01:39:37.315Z",
+      "distZipFilename": "InstagramClonePostConfirmation-55443657314857726b78-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-instagramclone-staging-e557e-deployment",
+        "s3Key": "amplify-builds/InstagramClonePostConfirmation-55443657314857726b78-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/function/InstagramClonePostConfirmation-cloudformation-template.json",
+        "logicalId": "functionInstagramClonePostConfirmation"
+      },
+      "lastPushTimeStamp": "2024-04-14T01:42:18.835Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::590184118512:role/InstagramClonePostConfirmation-staging",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:590184118512:function:InstagramClonePostConfirmation-staging",
+        "Name": "InstagramClonePostConfirmation-staging",
+        "LambdaExecutionRole": "InstagramClonePostConfirmation-staging"
+      },
+      "lastPushDirHash": "teLxg8Q8wY/RMQVasr0zVbrsxno="
     }
   }
 }

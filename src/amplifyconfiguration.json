@@ -4,7 +4,20 @@
   "aws_cognito_region": "us-east-1",
   "aws_user_pools_id": "us-east-1_dJMJBDv3Z",
   "aws_user_pools_web_client_id": "239460gs9cnfk71oe9dl08ks58",
-  "oauth": {},
+  "oauth": {
+    "domain": "instagramclone69dc2d6d-69dc2d6d-staging.auth.us-east-1.amazoncognito.com",
+    "scope": [
+      "phone",
+      "email",
+      "openid",
+      "profile",
+      "aws.cognito.signin.user.admin"
+    ],
+    "redirectSignIn": "notjustphotos://",
+    "redirectSignOut": "notjustphotos://",
+    "responseType": "code"
+  },
+  "federationTarget": "COGNITO_USER_POOLS",
   "aws_cognito_username_attributes": [],
   "aws_cognito_social_providers": [],
   "aws_cognito_signup_attributes": [
