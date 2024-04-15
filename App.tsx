@@ -6,6 +6,7 @@ import {Amplify} from 'aws-amplify';
 import amplifyconfig from './src/amplifyconfiguration.json';
 Amplify.configure(amplifyconfig);
 import colors from './src/theme/colors';
+import Client from './src/apollo/Client';
 
 // Amplify.configure(amplifyconfig)
 
@@ -18,7 +19,9 @@ import colors from './src/theme/colors';
 const App = () => {
   return (
       <SafeAreaProvider>
-        <Navigation />
+        <Client>
+          <Navigation />
+        </Client>
       </SafeAreaProvider>
   );
 };

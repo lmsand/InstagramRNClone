@@ -13,14 +13,16 @@ import Carousel from "../Carousel";
 import VideoPlayer from "../VideoPlayer";
 import { useNavigation } from "@react-navigation/native";
 import {FeedNavigationProp} from '../../types/navigation'
+import { Post } from "../../API";
+import { DEFAULT_USER_IMAGE } from "../../config";
 
 {
   /* <StatusBar style="auto" /> */
 }
 
 interface IFeedPost {
-  post: IPost;
-  isVisible: boolean
+  post: Post
+  isVisible?: boolean
 }
 
 const FeedPost = ({ post, isVisible }: IFeedPost) => {
@@ -31,7 +33,9 @@ const FeedPost = ({ post, isVisible }: IFeedPost) => {
   const navigation = useNavigation<FeedNavigationProp>()
 
   const navigateToUser = () => {
-    navigation.navigate('UserProfile', {userId: post.user.id})
+    if (post.User) {
+      navigation.navigate('UserProfile', {userId: post.User.id})
+    }
   }
 
   const navigateToComments = () => {
@@ -73,11 +77,11 @@ const FeedPost = ({ post, isVisible }: IFeedPost) => {
       <View style={styles.header}>
         <Image
           source={{
-            uri: post.user.image,
+            uri: post.User?.image || DEFAULT_USER_IMAGE,
           }}
           style={styles.userAvatar}
         />
-        <Text onPress={navigateToUser} style={styles.userName}>{post.user.username}</Text>
+        <Text onPress={navigateToUser} style={styles.userName}>{post.User?.username}</Text>
 
         <Entypo
           name="dots-three-horizontal"
@@ -131,7 +135,7 @@ const FeedPost = ({ post, isVisible }: IFeedPost) => {
 
         {/* Post description */}
         <Text style={styles.text} numberOfLines={isDescriptionExpanded ? 0 : 3}>
-          <Text style={styles.bold}>{post.user.username}</Text>{" "}
+          <Text style={styles.bold}>{post.User?.username}</Text>{" "}
           {post.description}
         </Text>
         <Text
@@ -145,8 +149,8 @@ const FeedPost = ({ post, isVisible }: IFeedPost) => {
         <Text onPress={navigateToComments} style={{ color: colors.lightgrey }}>
           View all {post.nofComments} comments
         </Text>
-        {post.comments.map((comment) => (
-          <Comment key={comment.id} comment={comment} />
+        {(post.Comments?.items || []).map((comment) => (
+          comment && <Comment key={comment.id} comment={comment} />
         ))}
 
         {/* Posted Date */}
