@@ -8,6 +8,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import {RootNavigatorParamList} from '../types/navigation';
 
 import * as Linking from 'expo-linking';
+import AuthStackNavigator from './AuthStackNavigator';
 
 const prefix = Linking.createURL('/');
 
@@ -43,6 +44,11 @@ const Navigation = () => {
         screenOptions={{headerShown: true}}>
 
 
+          <Stack.Screen
+            name="Auth"
+            component={AuthStackNavigator}
+            options={{headerShown: false}}
+          />
 
         <Stack.Screen
           name="Home"

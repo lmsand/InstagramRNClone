@@ -6,9 +6,14 @@ import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { ProfileNavigationProp } from "../../types/navigation";
 import { signOut } from 'aws-amplify/auth';
+import { User } from "../../API";
+import { DEFAULT_USER_IMAGE } from "../../config";
 
+interface IProfileHeader {
+  user: User
+}
 
-const ProfileHeader = () => {
+const ProfileHeader = ({user}: IProfileHeader) => {
   const navigation = useNavigation<ProfileNavigationProp>()
 
   async function handleSignOut() {
@@ -23,21 +28,21 @@ const ProfileHeader = () => {
     <View style={styles.root}>
       <View style={styles.headerRow}>
         {/* Profile image */}
-        <Image source={{ uri: user.image }} style={styles.avatar} />
+        <Image source={{ uri: user.image || DEFAULT_USER_IMAGE }} style={styles.avatar} />
 
         {/* Posts, followers, following number */}
         <View style={styles.numberContainer}>
-          <Text style={styles.numberText}>98</Text>
+          <Text style={styles.numberText}>{user.nofPosts}</Text>
           <Text>Posts</Text>
         </View>
 
         <View style={styles.numberContainer}>
-          <Text style={styles.numberText}>98</Text>
+          <Text style={styles.numberText}>{user.nofFollowers}</Text>
           <Text>Followers</Text>
         </View>
 
         <View style={styles.numberContainer}>
-          <Text style={styles.numberText}>98</Text>
+          <Text style={styles.numberText}>{user.nofFollowings}</Text>
           <Text>Following</Text>
         </View>
       </View>
