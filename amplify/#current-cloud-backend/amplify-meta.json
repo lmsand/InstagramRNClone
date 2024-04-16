@@ -37,7 +37,7 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2024-04-16T03:18:54.889Z",
+      "lastPushTimeStamp": "2024-04-16T04:11:06.570Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiInstagramClone"
@@ -93,7 +93,7 @@
         "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"notjustphotos://\"],\"LogoutURLs\":[\"notjustphotos://\"]}",
         "UserPoolName": "InstagramClone"
       },
-      "lastPushTimeStamp": "2024-04-16T03:18:52.130Z",
+      "lastPushTimeStamp": "2024-04-16T04:11:06.574Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/auth/InstagramClone-cloudformation-template.json",
         "logicalId": "authInstagramClone"
@@ -112,14 +112,14 @@
         "Name": "InstagramClonePostConfirmation-staging",
         "LambdaExecutionRole": "InstagramClonePostConfirmation-staging"
       },
-      "lastPushTimeStamp": "2024-04-16T03:18:54.889Z",
+      "lastPushTimeStamp": "2024-04-16T04:11:09.875Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-instagramclone-staging-e557e-deployment/amplify-cfn-templates/function/InstagramClonePostConfirmation-cloudformation-template.json",
         "logicalId": "functionInstagramClonePostConfirmation"
       },
       "s3Bucket": {
         "deploymentBucketName": "amplify-instagramclone-staging-e557e-deployment",
-        "s3Key": "amplify-builds/InstagramClonePostConfirmation-6e76726755634a4e6278-build.zip"
+        "s3Key": "amplify-builds/InstagramClonePostConfirmation-36676450422f4a514162-build.zip"
       },
       "dependsOn": [
         {
@@ -132,11 +132,11 @@
           ]
         }
       ],
-      "lastBuildTimeStamp": "2024-04-16T03:15:36.188Z",
+      "lastBuildTimeStamp": "2024-04-16T04:08:57.009Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2024-04-16T03:15:36.471Z",
-      "distZipFilename": "InstagramClonePostConfirmation-6e76726755634a4e6278-build.zip",
-      "lastPushDirHash": "rfezs60VR4nMES2u1gMJiyU0OuA="
+      "lastPackageTimeStamp": "2024-04-16T04:08:57.406Z",
+      "distZipFilename": "InstagramClonePostConfirmation-36676450422f4a514162-build.zip",
+      "lastPushDirHash": "bYtHvQQCyqZ4jKNgW1GKE54JTkA="
     }
   }
 }
