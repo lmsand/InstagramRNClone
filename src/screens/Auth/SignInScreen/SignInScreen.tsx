@@ -35,7 +35,7 @@ const SignInScreen = () => {
     setLoading(true)
 
     try {
-      const response = await signIn({ username, password })
+      const cognitoUser = await signIn({ username, password })
     } catch (e) {
       Alert.alert('oops', (e as Error).message)
       // if ((e as Error).name === 'UserNotConfirmedException') {
