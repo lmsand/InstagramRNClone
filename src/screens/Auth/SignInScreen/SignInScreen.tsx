@@ -26,7 +26,7 @@ const SignInScreen = () => {
   const navigation = useNavigation<SignInNavigationProp>();
   const[loading, setLoading] = useState(false)
 
-  const {control, handleSubmit} = useForm<SignInData>();
+  const {control, handleSubmit, watch, reset} = useForm<SignInData>();
 
   const onSignInPressed = async ({username, password}: SignInData) => {
     if (loading) {
@@ -36,11 +36,16 @@ const SignInScreen = () => {
 
     try {
       const response = await signIn({ username, password })
-      console.log(response);
     } catch (e) {
       Alert.alert('oops', (e as Error).message)
+      // if ((e as Error).name === 'UserNotConfirmedException') {
+      //   navigation.navigate('Confirm email', {username})
+      // } else {
+      //   Alert.alert('oops', (e as Error).message)
+      // }
     } finally {
       setLoading(false)
+      reset()
     }
 
     // validate user
@@ -49,6 +54,12 @@ const SignInScreen = () => {
 
   const onForgotPasswordPressed = () => {
     navigation.navigate('Forgot password');
+  };
+
+  const username = watch('username')
+
+  const onCodeRegisterPressed = () => {
+    navigation.navigate('Confirm email', {username});
   };
 
   const onSignUpPress = () => {
@@ -98,6 +109,12 @@ const SignInScreen = () => {
         <CustomButton
           text="Don't have an account? Create one"
           onPress={onSignUpPress}
+          type="TERTIARY"
+        />
+
+        <CustomButton
+          text="Already registered? Enter code"
+          onPress={onCodeRegisterPressed}
           type="TERTIARY"
         />
       </View>
